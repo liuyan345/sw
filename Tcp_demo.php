@@ -1,7 +1,7 @@
 <?php
 // 创建TCP服务器
 
-$serv = new swoole_server("0.0.0.0","9501");
+$serv = new swoole_server("120.79.166.44","9501");
 
 $serv->on("connect",function($serv,$fd){
     echo "connect.\n";

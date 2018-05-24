@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>websocket test</title>
+</head>
+<body>
+<script type="text/javascript">
+	var wsServer = "ws://120.79.166.44:9501";
+	var swbsocket = new websocket(wsServer);
+
+	swbsocket.onopen = function(evt){
+		console.log("connected to websocket server")
+	}
+
+	websocket.onclose = function(evt){
+		console.log("Disconnected");
+	}
+
+	websocket.onmessage = function(evt){
+		console.log("Retrieved data from server:"+evt.data);
+	}
+
+	websocket.onerror = function(evt,e){
+		console.log("Error occured:"+evt.data);
+	}
+</script>
+</body>
+</html>

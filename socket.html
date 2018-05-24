@@ -6,7 +6,7 @@
 <body>
 <script type="text/javascript">
 	var wsServer = "ws://120.79.166.44:9501";
-	var swbsocket = new websocket(wsServer);
+	var swbsocket = new WebSocket(wsServer);
 
 	swbsocket.onopen = function(evt){
 		console.log("connected to websocket server")

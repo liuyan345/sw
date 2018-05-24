@@ -9,6 +9,7 @@
 	var swbsocket = new WebSocket(wsServer);
 
 	swbsocket.onopen = function(evt){
+		swbsocket.send("abcde");
 		console.log("connected to websocket server")
 	}
 

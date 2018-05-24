@@ -1,6 +1,6 @@
 <?php
 
-$ws = new swoole_websorcket_server("0.0.0.0",9501);
+$ws = new swoole_websocket_server("0.0.0.0",9501);
 
 $ws->on("open",function($ws,$request){
 	var_dump($request->fd,$request->get,$request->server);

@@ -8,6 +8,9 @@ $serv->on("connect",function($serv,$fd){
 });
 
 $serv->on("receive",function($serv,$fd,$from_id,$data){
+	var_dump($fd);
+	var_dump($from_id);
+	var_dump($data);
    $serv->send($fd,"Server:".$data);
 });
 

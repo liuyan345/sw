@@ -1,5 +1,5 @@
 <?php
-$i = 1;
+define($i, 1);
 swoole_timer_tick(2000,function($timer_id){
 	var_dump($timer_id);
 	$i++;

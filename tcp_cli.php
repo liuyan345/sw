@@ -5,7 +5,7 @@
 
 	$serv->on("receive",function($serv,$fd,$from_id,$data){
 		$task_id = $serv->task($data);
-		echo "Dispath AsyncTask:id=$task_id\n"；
+		echo "Dispath AsyncTask:id=$task_id\n";
 	}) ;
 
 	$serv->on("task",function($serv,$task_id,$from_id,$data){

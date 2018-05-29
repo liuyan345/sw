@@ -1,6 +1,6 @@
 <?php
-define($i, 1);
-swoole_timer_tick(2000,function($timer_id){
+$i = 1;
+swoole_timer_tick(2000,function($timer_id)use($i){
 	var_dump($timer_id);
 	$i++;
 	echo $i."\n";

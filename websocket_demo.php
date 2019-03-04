@@ -15,7 +15,11 @@ class test{
 
         $ws->on("message",function($ws,$frame){
             var_dump($this->clientArray);
-            $ws->push($frame->fd, "server: {$frame->data}");
+            if($frame->fd>4){
+                $ws->push($frame->fd - 1, "server: {$frame->data}");
+            }else{
+                $ws->push($frame->fd, "server: {$frame->data}");
+            }
         });
 
         $ws->on("close",function($ws,$fd){

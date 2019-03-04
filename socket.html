@@ -30,7 +30,7 @@
         swbsocket.onmessage = function(evt){
 //            alert(evt.data)
 			console.log(3)
-			var c = "<span>"+evt.data+"</span>";
+			var c = "<span>"+evt.data+"</span><br>";
             $("#co").append(c);
             console.log("Retrieved data from server:"+evt.data);
         }

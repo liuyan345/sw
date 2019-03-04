@@ -4,27 +4,44 @@
 	<title>websocket test</title>
 </head>
 <body>
+<input type="text" id="aa">
+<div id="co" style="width: 100px;height: 100px"></div>
+<span id="tijiao" onclick="tijiao()">提交</span>|
+<span id="guanbi" onclick="guanbi()">关闭</span>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 	var wsServer = "ws://120.79.166.44:9501";
 	var swbsocket = new WebSocket(wsServer);
 
-	swbsocket.onopen = function(evt){
-		swbsocket.send("abcde");
-		console.log("connected to websocket server")
+
+	function tijiao(){
+        swbsocket.onopen = function(evt){
+            var str = $("#aa").val();
+            swbsocket.send(str);
+            console.log("connected to websocket server")
+        }
+        swbsocket.onmessage = function(evt){
+            alert(evt.data)
+			var c = "<span>"+evt.data+"</span>";
+            $("#co").append(c);
+            console.log("Retrieved data from server:"+evt.data);
+        }
+
+        swbsocket.onerror = function(evt,e){
+            console.log("Error occured:"+evt.data);
+        }
 	}
 
-	swbsocket.onclose = function(evt){
-		console.log("Disconnected");
+	function guanbi(){
+        swbsocket.onclose = function(evt){
+            console.log("Disconnected");
+        }
 	}
 
-	swbsocket.onmessage = function(evt){
-	    alert(evt.data)
-		console.log("Retrieved data from server:"+evt.data);
-	}
 
-	swbsocket.onerror = function(evt,e){
-		console.log("Error occured:"+evt.data);
-	}
+
+
+
 </script>
 </body>
 </html>

@@ -1,9 +1,14 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-	<title>websocket test</title>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>test</title>
 </head>
 <body>
+
 <input type="text" id="aa">
 <div id="co" style="width: 100px;height: 100px"></div>
 <span id="tijiao" onclick="tijiao()">提交</span>|
@@ -15,13 +20,16 @@
 
 
 	function tijiao(){
+	    console.log(1);
         swbsocket.onopen = function(evt){
+            console.log(2);
             var str = $("#aa").val();
             swbsocket.send(str);
             console.log("connected to websocket server")
         }
         swbsocket.onmessage = function(evt){
-            alert(evt.data)
+//            alert(evt.data)
+			console.log(3)
 			var c = "<span>"+evt.data+"</span>";
             $("#co").append(c);
             console.log("Retrieved data from server:"+evt.data);

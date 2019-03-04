@@ -8,6 +8,7 @@ $ws->on("open",function($ws,$request){
 
 $ws->on("message",function($ws,$frame){
 //	 echo "Message:{$frame->data}\n";
+    var_dump($frame->fd);
     $ws->push($frame->fd, "server: {$frame->data}");
 });
 

@@ -3,11 +3,12 @@
 $ws = new swoole_websocket_server("0.0.0.0",9501);
 
 $ws->on("open",function($ws,$request){
-	$ws->push($request->fd,$request->data);
+//	$ws->push($request->fd,$request->data);
 });
 
 $ws->on("message",function($ws,$frame){
-	 echo "Message:{$frame->data}\n";
+//	 echo "Message:{$frame->data}\n";
+    $ws->push($frame->fd, "server: {$frame->data}");
 });
 
 $ws->on("close",function($ws,$fd){

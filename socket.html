@@ -18,6 +18,7 @@
 	}
 
 	swbsocket.onmessage = function(evt){
+	    alert(evt.data)
 		console.log("Retrieved data from server:"+evt.data);
 	}
 

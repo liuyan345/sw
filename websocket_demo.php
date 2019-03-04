@@ -8,11 +8,7 @@ $ws->on("open",function($ws,$request){
 });
 
 $ws->on("message",function($ws,$frame){
-//	$i = 0;
-//	swoole_timer_tick(2000, function ($timer_id) {
-//		$i++;
-//		$ws->push($frame->fd,$i);
-//	});
+
 	 echo "Message:{$frame->data}\n";
 });
 
